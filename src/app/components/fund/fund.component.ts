@@ -26,8 +26,10 @@ export class FundComponent implements OnInit {
 }
 */
 import {Component, OnInit} from '@angular/core';
+import { Observable } from 'rxjs';
 import { CommonModule } from "@angular/common";
-import { FundService } from "../../services/fund.service";
+import { FundService} from "../../services/fund.service";
+import { FundData } from "../../models/fund.model"
 
   @Component({
     selector: "app-fund",
@@ -38,16 +40,16 @@ import { FundService } from "../../services/fund.service";
   })
 
   export class FundComponent implements OnInit {
-    datas: any;
-
-    constructor(private dataService: FundService) {
+    //Initialize parameter
+    fundData$: Observable<FundData[]> | null = null;
+    constructor(private fundService: FundService) {
     }
 
     ngOnInit(): void {
-      console.log('ngOnInit called'); // Log when ngOnInit is called
-      this.dataService.getData().subscribe(response => {
-        console.log(response); // Log the response data to check
-        this.datas = response;
+      this.fundData$ = this.fundService.getData();
+      // You have to subscribe to be able to log response data
+      this.fundData$.subscribe(data => {
+        console.log(data);
       });
     }
   }

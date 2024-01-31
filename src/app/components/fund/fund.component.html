@@ -1,25 +1,21 @@
- <h1 class = "funds-h1">List of Funds</h1>
  <table class="funds-table">
   <thead>
     <tr>
       <th>Fund Name</th>
-      <th>Change 1 Month</th>
-      <th>Change 3 Months</th>
-      <th>Change 3 Years</th>
+      <th>Change 1 Month (%)</th>
+      <th>Change 3 Months (%)</th>
+      <th>Change 3 Years (%)</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of datas[0].data">
-      <!--Cleans out data that has null values-->
-      <ng-container *ngIf="data.change1m !== null && data.change3m !== null && data.change3y !== null">
+    <tr *ngFor="let data of fundData$ | async">
       <td>{{ data.fundName }}</td>
       <td>{{ data.change1m }}</td>
       <td>{{ data.change3m }}</td>
       <td>{{ data.change3y }}</td>
-    </ng-container>
     </tr>
   </tbody>
 </table>
-<div *ngIf="!datas || datas.length === 0">
+<div *ngIf="!(fundData$ | async)">
   Loading data...
 </div>
