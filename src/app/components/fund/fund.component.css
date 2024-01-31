@@ -1,6 +1,5 @@
-/*
 .funds-table {
-  width: 100%;
+  margin: 0 auto; 
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -15,11 +14,14 @@
   text-align: left;
 }
 
-.funds-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+.funds-table tbody tr {
+  background-color: #ffffff; 
 }
 
 .funds-table tbody tr:hover {
   background-color: #f2f2f2;
 }
-*/
+
+.funds-h1{
+  text-align: center;
+}

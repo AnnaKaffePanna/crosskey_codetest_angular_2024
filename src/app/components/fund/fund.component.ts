@@ -38,7 +38,7 @@ import { FundService } from "../../services/fund.service";
   })
 
   export class FundComponent implements OnInit {
-    funds: any;
+    datas: any;
 
     constructor(private dataService: FundService) {
     }
@@ -47,7 +47,7 @@ import { FundService } from "../../services/fund.service";
       console.log('ngOnInit called'); // Log when ngOnInit is called
       this.dataService.getData().subscribe(response => {
         console.log(response); // Log the response data to check
-        this.funds = response;
+        this.datas = response;
       });
     }
   }
