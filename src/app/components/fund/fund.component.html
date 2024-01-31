@@ -1,0 +1,21 @@
+<table>
+  <thead>
+  <tr>
+    <th>Fund Name</th>
+    <th>Change 1 Month (%)</th>
+    <th>Change 3 Months (%)</th>
+    <th>Change 3 Years (%)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let fund of funds; let i = index">
+    <td>{{ fund.data[i].fundName }}</td>
+    <td>{{ fund.data.change1m }}</td>
+    <td>{{ fund.data.change3m }}</td>
+    <td>{{ fund.change3y }}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="!funds || funds.length === 0">
+  Loading data...
+</div>

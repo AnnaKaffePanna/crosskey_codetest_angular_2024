@@ -1,0 +1,25 @@
+/*
+.funds-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.funds-table th, .funds-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.funds-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.funds-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.funds-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+*/
