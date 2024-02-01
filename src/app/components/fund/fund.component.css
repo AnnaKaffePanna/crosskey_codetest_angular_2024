@@ -1,17 +1,29 @@
+.html,
+body {
+  margin: auto -10px;
+  width: auto;
+  height: 2000px;
+  padding: 80px 0 0;
+  background-color: whitesmoke;
+}
+
 .funds-table {
   margin: 0 auto;
-  border-collapse: collapse;
-  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 25px;
 }
 
 .funds-table td {
   padding: 8px;
   border: 1px solid #ddd;
+  color: grey;
 }
 
 .funds-table th {
-  background-color: #13b7b9;
+  background-color: #178688;
   text-align: left;
+  padding: 10px;
+  color: white;
 }
 
 .funds-table tbody tr {
@@ -20,9 +32,11 @@
 
 .funds-h1 {
   text-align: center;
+  color: grey;
 }
 
 .loading-funds {
   text-align: center;
   padding-top: 20px;
+  color: grey;
 }
