@@ -8,7 +8,7 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     }).compileComponents();
   });
 
@@ -22,7 +22,7 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-   it('should render the app-fund component', () => {
+  it('should render the app-fund component', () => {
     const compiled = fixture.nativeElement;
     const fundComponent = compiled.querySelector('app-fund');
     expect(fundComponent).toBeTruthy();

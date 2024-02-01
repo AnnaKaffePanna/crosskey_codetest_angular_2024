@@ -14,15 +14,12 @@ describe('FundComponent', () => {
     const spy = jasmine.createSpyObj('FundService', ['getData']);
 
     TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule],
-        providers: [
-            { provide: FundService, useValue: spy }
-        ]
+      imports: [HttpClientTestingModule],
+      providers: [{ provide: FundService, useValue: spy }],
     }).compileComponents();
 
     // Mocking FundService
     fundServiceSpy = TestBed.inject(FundService) as jasmine.SpyObj<FundService>;
-
   });
 
   beforeEach(() => {
@@ -37,20 +34,20 @@ describe('FundComponent', () => {
   it('should fetch data on initialization', () => {
     // Test data
     const testData: FundData[] = [
-      { fundName: 'Test Fund', change1m: 0.05, change3m: 0.1, change3y: 0.2 }
+      { fundName: 'Test Fund', change1m: 0.05, change3m: 0.1, change3y: 0.2 },
     ];
-    
+
     fundServiceSpy.getData.and.returnValue(of(testData));
-  
+
     fixture.detectChanges(); // Trigger ngOnInit
-  
+
     expect(fundServiceSpy.getData).toHaveBeenCalled();
     expect(component.fundData$).toBeTruthy();
-  
+
     // Check if fundData$ is not null before subscribing
     if (component.fundData$) {
       // Subscribe to the component's observable and compare emitted values
-      component.fundData$.subscribe(emittedData => {
+      component.fundData$.subscribe((emittedData) => {
         expect(emittedData).toEqual(testData);
       });
     } else {
@@ -58,5 +55,4 @@ describe('FundComponent', () => {
       fail('fundData$ is null');
     }
   });
-  });
-
+});

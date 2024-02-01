@@ -1,4 +1,4 @@
- <table class="funds-table">
+<table class="funds-table" *ngIf="(fundData$ | async) as fundData; else loading">
   <thead>
     <tr>
       <th>Fund Name</th>
@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of fundData$ | async">
+    <tr *ngFor="let data of fundData">
       <td>{{ data.fundName }}</td>
       <td>{{ data.change1m }}</td>
       <td>{{ data.change3m }}</td>
@@ -16,6 +16,7 @@
     </tr>
   </tbody>
 </table>
-<div *ngIf="!(fundData$ | async)">
-  Loading data...
-</div>
+
+<ng-template #loading>
+  <div class="loading-funds">Loading data...</div>
+</ng-template>
